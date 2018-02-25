@@ -19,10 +19,10 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-var Pool= new Pool(config);
+var pool= new Pool(config);
 
 app.get('/test-db',function(req,res){
-    Pool.query('SELCT * FROM test',function(err,results){
+    pool.query('SELCT * FROM test',function(err,results){
         if(err){
             res.status(500).send(err.string());
         }else{
